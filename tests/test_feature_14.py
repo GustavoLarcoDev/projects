@@ -145,7 +145,7 @@ class FeatureTests(TestCase):
         self.assertEqual(
             response.headers.get("Location"),
             reverse("list_projects"),
-            msg="Create does not redirect to detail",
+            msg="Create does not redirect to list view",
         )
 
     def test_list_view_has_link_to_create(self):
