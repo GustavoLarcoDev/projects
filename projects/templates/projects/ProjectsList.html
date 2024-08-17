@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Projects</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>My Projects</h1>
+        {% if projects %}
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Number of tasks</th>
+          </tr>
+          {% for project in projects %}
+          <tr>
+            <td>{{ project.name }}</td>
+            <td></td>
+            <!-- No task data available yet -->
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+        <p>You are not assigned to any projects</p>
+        {% endif %}
+      </div>
+    </main>
+  </body>
+</html>
