@@ -9,13 +9,21 @@ def create_task(request):
     if request.method == "POST":
         form = TaskForm(request.POST)
         if form.is_valid():
-            project = form.save()
+            task = form.save()
             return redirect("list_projects")
     else:
         form = TaskForm()
 
     context = {
-        "form": form
+        "form": TaskForm
     }
 
     return render(request, "tasks/CreateTask.html", context)
+
+
+@login_required
+def show_my_task(request):
+    context = {
+        "tasks": Task.objects.filter(assignee=request.user),
+    }
+    return render(request, "tasks/Task.html", context)
